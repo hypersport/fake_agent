@@ -1,5 +1,8 @@
 # FakeAgent
 
+[![Ruby](https://github.com/hypersport/fake_agent/workflows/Ruby/badge.svg)](https://github.com/hypersport/fake_agent/actions/workflows/ruby.yml)
+[![Gem Version](https://badge.fury.io/rb/fake_agent.svg)](https://badge.fury.io/rb/fake_agent)
+
 Up-to-date simple useragent faker with real world database.
 
 ## Features
