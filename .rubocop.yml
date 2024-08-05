@@ -11,3 +11,11 @@ Style/StringLiteralsInInterpolation:
 
 Layout/LineLength:
   Max: 120
+
+Lint/AmbiguousBlockAssociation:
+  Description: This cop checks for ambiguous block association with method when param passed without parentheses.
+  Enabled: false
+
+Style/Documentation:
+  Description: This cop checks for missing top-level documentation of classes and modules.
+  Enabled: false

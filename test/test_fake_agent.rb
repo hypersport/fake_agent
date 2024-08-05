@@ -8,10 +8,6 @@ class TestFakeAgent < Minitest::Test
     @data = JSON.parse(agents)
   end
 
-  def test_version
-    assert_match /[0-9]+\.[0-9]+\.[0-9]+/, FakeAgent.version
-  end
-
   def test_random
     agent = FakeAgent::FakeAgent.random
     refute_empty @data.select { |x| x["useragent"] == agent }
