@@ -33,48 +33,48 @@ class TestFakeAgent < Minitest::Test
     refute_empty @data.select { |x| x["useragent"] == agent and x["browser"] == "edge" }
   end
 
-  def test_duckduckgo
-    agent = FakeAgent::FakeAgent.duckduckgo
-    refute_empty @data.select { |x| x["useragent"] == agent and x["browser"].downcase.include? "duckduckgo" }
+  def test_opera
+    agent = FakeAgent::FakeAgent.opera
+    refute_empty @data.select { |x| x["useragent"] == agent and x["browser"] == "opera" }
   end
 
   def test_windows
     agent = FakeAgent::FakeAgent.windows
-    refute_empty @data.select { |x| x["useragent"] == agent and x["os"] == "win10" }
+    refute_empty @data.select { |x| x["useragent"] == agent and x["system"] == "windows" }
   end
 
   def test_macos
     agent = FakeAgent::FakeAgent.macos
-    refute_empty @data.select { |x| x["useragent"] == agent and x["os"] == "macos" }
+    refute_empty @data.select { |x| x["useragent"] == agent and x["system"] == "macos" }
   end
 
   def test_linux
     agent = FakeAgent::FakeAgent.linux
-    refute_empty @data.select { |x| x["useragent"] == agent and x["os"] == "linux" }
+    refute_empty @data.select { |x| x["useragent"] == agent and x["system"] == "linux" }
   end
 
   def test_android
     agent = FakeAgent::FakeAgent.android
-    refute_empty @data.select { |x| x["useragent"] == agent and x["os"] == "android" }
+    refute_empty @data.select { |x| x["useragent"] == agent and x["system"] == "android" }
   end
 
   def test_ios
     agent = FakeAgent::FakeAgent.ios
-    refute_empty @data.select { |x| x["useragent"] == agent and x["os"] == "ios" }
+    refute_empty @data.select { |x| x["useragent"] == agent and x["system"] == "ios" }
   end
 
-  def test_pc
-    agent = FakeAgent::FakeAgent.pc
-    refute_empty @data.select { |x| x["useragent"] == agent and x["type"] == "pc" }
+  def test_desktop
+    agent = FakeAgent::FakeAgent.desktop
+    refute_empty @data.select { |x| x["useragent"] == agent and x["platform"] == "desktop" }
   end
 
   def test_mobile
     agent = FakeAgent::FakeAgent.mobile
-    refute_empty @data.select { |x| x["useragent"] == agent and x["type"] == "mobile" }
+    refute_empty @data.select { |x| x["useragent"] == agent and x["platform"] == "mobile" }
   end
 
   def test_tablet
     agent = FakeAgent::FakeAgent.tablet
-    refute_empty @data.select { |x| x["useragent"] == agent and x["type"] == "tablet" }
+    refute_empty @data.select { |x| x["useragent"] == agent and x["platform"] == "tablet" }
   end
 end

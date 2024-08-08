@@ -5,35 +5,35 @@ require "json"
 
 module FakeAgent
   class FakeAgent
-    @browsers = %w[edge chrome safari firefox duckduckgo]
-    @os = %w[windows macos linux android ios]
-    @platforms = %w[pc mobile tablet]
+    @browsers = %w[edge chrome safari firefox opera]
+    @systems = %w[windows macos linux android ios]
+    @platforms = %w[desktop mobile tablet]
     agents = File.read(File.join(__dir__, "browsers.json"))
     @data = JSON.parse(agents)
 
     class << self
-      def random(browsers: @browsers, systems: @os, platforms: @platforms)
+      def random(browsers: @browsers, systems: @systems, platforms: @platforms)
         get_agent(browsers: Array(browsers), systems: Array(systems), platforms: Array(platforms))
       end
 
-      def chrome(systems: @os, platforms: @platforms)
+      def chrome(systems: @systems, platforms: @platforms)
         get_agent(browsers: %w[chrome], systems: Array(systems), platforms: Array(platforms))
       end
 
-      def safari(systems: @os, platforms: @platforms)
+      def safari(systems: @systems, platforms: @platforms)
         get_agent(browsers: %w[safari], systems: Array(systems), platforms: Array(platforms))
       end
 
-      def firefox(systems: @os, platforms: @platforms)
+      def firefox(systems: @systems, platforms: @platforms)
         get_agent(browsers: %w[firefox], systems: Array(systems), platforms: Array(platforms))
       end
 
-      def edge(systems: @os, platforms: @platforms)
+      def edge(systems: @systems, platforms: @platforms)
         get_agent(browsers: %w[edge], systems: Array(systems), platforms: Array(platforms))
       end
 
-      def duckduckgo(systems: @os, platforms: @platforms)
-        get_agent(browsers: %w[duckduckgo], systems: Array(systems), platforms: Array(platforms))
+      def opera(systems: @systems, platforms: @platforms)
+        get_agent(browsers: %w[opera], systems: Array(systems), platforms: Array(platforms))
       end
 
       def windows(browsers: @browsers, platforms: @platforms)
@@ -56,23 +56,23 @@ module FakeAgent
         get_agent(browsers: Array(browsers), systems: %w[ios], platforms: Array(platforms))
       end
 
-      def pc(browsers: @browsers, systems: @os)
-        get_agent(browsers: Array(browsers), systems: Array(systems), platforms: %w[pc])
+      def desktop(browsers: @browsers, systems: @systems)
+        get_agent(browsers: Array(browsers), systems: Array(systems), platforms: %w[desktop])
       end
 
-      def mobile(browsers: @browsers, systems: @os)
+      def mobile(browsers: @browsers, systems: @systems)
         get_agent(browsers: Array(browsers), systems: Array(systems), platforms: %w[mobile])
       end
 
-      def tablet(browsers: @browsers, systems: @os)
+      def tablet(browsers: @browsers, systems: @systems)
         get_agent(browsers: Array(browsers), systems: Array(systems), platforms: %w[tablet])
       end
 
       private
 
-      def get_agent(browsers: @browsers, systems: @os, platforms: @platforms)
+      def get_agent(browsers: @browsers, systems: @systems, platforms: @platforms)
         data = @data.select do |x|
-          browsers.include? x["browser"] and systems.include? x["os"] and platforms.include? x["platform"]
+          browsers.include? x["browser"] and systems.include? x["system"] and platforms.include? x["platform"]
         end
         data = @data if data.length <= 0
         data[Random.rand(data.length)]["useragent"]
