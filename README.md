@@ -98,7 +98,7 @@ FakeAgent::FakeAgent.random(platforms: %w[desktop mobile tablet])
 
 FakeAgent::FakeAgent.random(browsers: "chrome", systems: "windows", platforms: "desktop")
 
-FakeAgent::FakeAgent.random(browsers: %w[chrome safari firefox opera edge], systems: "windows", platforms: "desktop")
+FakeAgent::FakeAgent.random(browsers: %w[chrome firefox opera edge], systems: "windows", platforms: "desktop")
 
 FakeAgent::FakeAgent.random(browsers: %w[chrome firefox], systems: %w[windows macos])
 

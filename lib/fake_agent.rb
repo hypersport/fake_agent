@@ -38,7 +38,7 @@ module FakeAgent
       # @example
       #   FakeAgent::FakeAgent.random(browsers: "chrome", systems: "windows", platforms: "desktop")
       # @example
-      #   FakeAgent::FakeAgent.random(browsers: %w[chrome safari firefox opera edge], systems: "windows", platforms: "desktop")
+      #   FakeAgent::FakeAgent.random(browsers: %w[chrome firefox opera edge], systems: "windows", platforms: "desktop")
       # @example
       #   FakeAgent::FakeAgent.random(browsers: %w[chrome firefox], systems: %w[windows macos])
       def random(browsers: @browsers, systems: @systems, platforms: @platforms)
